@@ -391,6 +391,35 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: s
       </div>
     </div>
   </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="no">07</span>
+        <h2>Orchestrator handoff checks</h2>
+        <p>Shape C splits work between an orchestrator and a read-only investigator. Four tests pin down what may cross that boundary.</p>
+      </div>
+      <div class="two">
+        <div class="sheet panel">
+          <span class="label">Handoff is sanitized and read-only</span>
+          <p class="note">The traced handoff lists only read tools. No <span class="mono">CANARY_SECRET_*</span>, <span class="mono">parent_secret</span> or <span class="mono">raw_headers</span> appears anywhere in the trace.</p>
+        </div>
+        <div class="sheet panel">
+          <span class="label">Ticket and claim row stay out</span>
+          <p class="note">Ticket text is user data. It is never forwarded to the investigator and never written to the trace, nor are the claim's headers.</p>
+        </div>
+        <div class="sheet panel">
+          <span class="label">A rejected tool fails closed</span>
+          <p class="note">If the investigator asks for a tool outside the read-only registry, the run ends <span class="mono">failed</span> with <span class="mono">investigator_tool_rejected</span>: no refund, no <span class="mono">refund_committed</span> audit, an <span class="mono">error</span> event in the trace.</p>
+        </div>
+        <div class="sheet panel">
+          <span class="label">Escalation leaks nothing</span>
+          <p class="note">When the principal does not own the order (C-005), the run ends <span class="mono">escalated</span> and the trace carries no phone number or internal note.</p>
+        </div>
+      </div>
+      <p class="note" style="margin-top:10px">Student matrix for orchestrator: 62 of 62 pass. Host gate: 96 passed.</p>
+    </div>
+  </section>
 </main>
 
 <footer>
