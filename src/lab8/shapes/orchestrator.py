@@ -24,7 +24,7 @@ from lab8 import durability
 from lab8.db import connect
 from lab8.handoff import make_handoff
 from lab8.mock_llm import complete
-from lab8.runtime import run_readonly_investigators
+from lab8.runtime import ToolRejected, run_readonly_investigators
 from lab8.schemas import Budget, RunResult, make_run_id
 from lab8.shapes.common import finish, safe_dump
 from lab8.tools import compute_compensation, get_claim_view, tool_cost
@@ -88,7 +88,12 @@ def _run(conn: sqlite3.Connection, claim_id: str, *, seed: int, crash_at: str | 
     trace.add("handoff", safe_dump(handoff))
 
     # 2. Investigator: read-only registry (worker=True inside the runtime).
-    investigated = run_readonly_investigators(conn, budget, handoff, principal_id=claim["principal_id"])
+    try:
+        investigated = run_readonly_investigators(conn, budget, handoff, principal_id=claim["principal_id"])
+    except ToolRejected as exc:
+        # A worker asked for a tool outside the read-only registry: fail closed, no refund.
+        trace.add("error", {"reason": "investigator_tool_rejected", "tool": str(exc)})
+        return done("failed", 0, "investigator_tool_rejected")
     complete(budget, seed=seed, purpose="investigate", prompt=f"tools={','.join(INVESTIGATOR_TOOLS)}")
     tools = investigated["tools"]
     order_view = tools.get("lookup_order") or {}
