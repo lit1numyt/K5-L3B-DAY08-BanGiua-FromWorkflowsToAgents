@@ -57,4 +57,3 @@ Commit chính: **`b472332`** — `feat(orchestrator): fail closed on rejected in
 - **Hạn chế:** phần lõi orchestrator do thành viên khác viết ở `62932fd`, đóng góp của mình là rà soát, bổ sung xử lý lỗi và test. Test chỉ chạy trên dữ liệu public (14 claim) với MockLLM, chưa chạy trên bộ hidden; chưa có số benchmark để so orchestrator với workflow/single/swarm.
 - **Việc tiếp theo:** rà `CANARY_SECRET_*` trong trace và stdout ở CP4, tham gia benchmark và ADR ở CP5.
 
-> *Ghi chú cho Duy (xóa trước khi nộp):* mục 5 và 6 cần bạn đọc lại và sửa theo đúng những gì bạn thực sự làm và hiểu; giảng viên có thể hỏi trực tiếp về nội dung này.
