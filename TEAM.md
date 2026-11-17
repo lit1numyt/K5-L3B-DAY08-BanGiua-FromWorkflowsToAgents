@@ -9,10 +9,10 @@
 
 ## Thành viên
 
-| STT | Họ tên | MSSV | Email | GitHub | Vai trò |
-| --: | ------ | ---- | ----- | ------ | ------- |
-|   1 | Đồng Hữu Nguyên Khoa | 2A202604000 | 26ai.khoadhn@vinuni.edu.vn | [lit1numyt](https://github.com/lit1numyt) | Integration + shape B (single) + benchmark/crash |
-|   2 | Lý Hà Trân Trân | 2A202603968 | 26ai.tranlht@vinuni.edu.vn | [TranHa161](https://github.com/TranHa161) | Durability test (crash/resume/retry) cho shape A, C |
+| STT | Họ tên                 | MSSV        | Email                      | GitHub                                   | Vai trò                                            |
+| --: | ------------------------ | ----------- | -------------------------- | ---------------------------------------- | --------------------------------------------------- |
+|   1 | Đồng Hữu Nguyên Khoa | 2A202604000 | 26ai.khoadhn@vinuni.edu.vn | [lit1numyt](https://github.com/lit1numyt) | Integration + shape B (single) + benchmark/crash    |
+|   2 | Lý Hà Trân Trân      | 2A202603968 | 26ai.tranlht@vinuni.edu.vn | [TranHa161](https://github.com/TranHa161) | Durability test (crash/resume/retry) cho shape A, C |
 
 Gợi ý chia vai:
 
@@ -23,10 +23,10 @@ Gợi ý chia vai:
 
 `python -m lab8.check_submission` đọc bảng này bằng máy: giữ nguyên tiêu đề `## Bảng đóng góp` và các cột. Mỗi người một dòng: commit có nội dung và ít nhất một test đã thêm hoặc sửa.
 
-| Người | Vai | Commit | Test đã thêm hoặc sửa |
-| --- | --- | --- | --- |
-| Đồng Hữu Nguyên Khoa | Integration, shape B `single`, benchmark/crash | `62932fd` (starter cp1 + cp2: ba shape A/B/C), `caebbbe` (shape B cp3 + cp4) | `src/tests/test_single_shape.py` (34 test: approval, secret/PII, crash 3 điểm, ranh giới agent) |
-| Lý Hà Trân Trân | Durability test shape A `workflow`, C `orchestrator`; gỡ pack hidden khỏi git | `96d1cb4` (test crash/resume/retry), `415f247` (untrack `instructor/`) | `src/tests/test_crash_resume_shapes.py` (12 test: crash 3 điểm × 2 shape rồi resume + retry, trần theo đơn sau crash T14, trace sạch khi crash, retry claim denied T13) |
+| Người                  | Vai                                                                                 | Commit                                                                           | Test đã thêm hoặc sửa                                                                                                                                                        |
+| ------------------------ | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Đồng Hữu Nguyên Khoa | Integration, shape B `single`, benchmark/crash                                    | `62932fd` (starter cp1 + cp2: ba shape A/B/C), `caebbbe` (shape B cp3 + cp4) | `src/tests/test_single_shape.py` (34 test: approval, secret/PII, crash 3 điểm, ranh giới agent)                                                                              |
+| Lý Hà Trân Trân      | Durability test shape A `workflow`, C `orchestrator`; gỡ pack hidden khỏi git | `96d1cb4` (test crash/resume/retry), `415f247` (untrack `instructor/`)     | `src/tests/test_crash_resume_shapes.py` (12 test: crash 3 điểm × 2 shape rồi resume + retry, trần theo đơn sau crash T14, trace sạch khi crash, retry claim denied T13) |
 
 ## Cá nhân
 
@@ -44,12 +44,6 @@ Sao chép mục dưới đây cho từng thành viên.
 
 ### Phần việc phụ trách
 
--
-
 ### Đóng góp cụ thể
 
--
-
 ### Bằng chứng
-
--
